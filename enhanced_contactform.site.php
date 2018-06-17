@@ -71,15 +71,15 @@ function enhanced_contactform_theme_main() {
 			<div>
 			<label for="contactform_to"><?php echo $lang['enhanced_contactform']['name']; ?></label>
 				<br />
-				<input name="contactform_to" id="contactform_to" type="text" />
 				<select name="contactform_to" id="contactform_to">
-				<? while (false !== ($file = readdir($dir))) {
+				<? 
+				    $dir = opendir('data/settings/modules/enhanced_contactform');
+					while (false !== ($file = readdir($dir))) {
 						if(($file !== ".") and ($file !== "..")) {
 							include ('data/settings/modules/enhanced_contactform/'.$file);
 							echo '<option value='.$email.'>'.$emailname.'</option>;'
 						}
 			    } ?>
-  					<option value="volvo">Volvo</option>
 				</select> 
 				<br />
 				<label for="contactform_name"><?php echo $lang['general']['name']; ?></label>
