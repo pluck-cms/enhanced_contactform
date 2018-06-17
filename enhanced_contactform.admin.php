@@ -120,18 +120,21 @@ function enhanced_contactform_page_admin_activate(){
 			   if((!isset($_POST['name'])) || (!isset($_POST['email']))) { ?>
 				<span style="color: red;"><?php echo $lang['enhanced_contactform']['fillall']; ?></span>
 			<?php
+				echo "niet correct";
 				// exit;
 			}
 			else {
 				//Then fetch our posted variables
 				$name = $_POST['name'];
 				$email = $_POST['email'];
-	
+				echo "correct";
+				echo "<br/>name:" . $name;
+				echo "<br/>email" . $email;
+
 				//Check for HTML, and eventually block it
-				if ((ereg('<', $title)) || (ereg('>', $title)) || (ereg('<', $email)) || (ereg('>', $email))) { ?>
+				if ((ereg('<', $name)) || (ereg('>', $name)) || (ereg('<', $email)) || (ereg('>', $email))) { ?>
 					<span style="color: red;"><?php echo $lang['enhanced_contactform']['nohtml']; ?></span>
-				<?php }
-			else {
+				<?php } else {
 		
 				$file=str_replace(" ", "_", $name);
 				$file=date ("dmY"). '-' . $file;
@@ -143,9 +146,9 @@ function enhanced_contactform_page_admin_activate(){
 					.'');
 				fclose ($fp);
 				
+				echo "Bestand gemaakt: " . $file;
+
 			
-				echo $lang['enhanced_contactform']['wsend'];
-	
 				}
 			}
 	
