@@ -115,7 +115,7 @@ function enhanced_contactform_page_admin_activate(){
 		   echo "voor submit";
     
     
-    if (isset($_GET['Submit'])) {
+    if (isset($_POST['Submit'])) {
 		echo "submit";
 
 		       //Check if everything has been filled in
