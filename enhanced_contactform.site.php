@@ -72,7 +72,7 @@ function enhanced_contactform_theme_main() {
 			<label for="contactform_to"><?php echo $lang['enhanced_contactform']['name']; ?></label>
 				<br />
 				<select name="contactform_to" id="contactform_to">
-				<? 
+				<?php 
 				    $dir = opendir('data/settings/modules/enhanced_contactform');
 					while (false !== ($file = readdir($dir))) {
 						if(($file !== ".") and ($file !== "..")) {
