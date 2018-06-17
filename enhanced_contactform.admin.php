@@ -101,7 +101,7 @@ function enhanced_contactform_page_admin_activate(){
 	global $lang;
     	showmenudiv($lang['enhanced_contactform']['backlink'],false,'data/image/restore.png','?module=enhanced_contactform',false);
 
-            echo '
+           ?>
             <div class="menudiv" style="margin: 10px;">
  
 	        <form method="post" action="" style="margin-top: 5px; margin-bottom: 15px;">
@@ -110,9 +110,9 @@ function enhanced_contactform_page_admin_activate(){
             	<input type="submit" name="Submit" value="<?php echo $lang['enhanced_contactform']['send']; ?>" />
 	        </form>
  
-            </div>';
-           }
-       }
+            </div> <?php 
+           
+    
     
     if (isset($_GET['Submit'])) {
 
