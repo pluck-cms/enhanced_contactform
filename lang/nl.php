@@ -9,7 +9,7 @@ $lang['enhanced_contactform']['not_send'] = 'Door een onverwachte error kon uw b
 $lang['enhanced_contactform']['main'] = "Enhanced Contacforumuler beheren";
 
 $lang['enhanced_contactform']['pagessite'] = "Nieuwe entry aanmaken";
-$lang['enhanced_contactform']['adminpage'] = "Entry toevoegen";
+$lang['enhanced_contactform']['adminpage'] = "Emailadres toevoegen";
 $lang['enhanced_contactform']['newentry']  = "Nieuwe entry aanmaken";
 $lang['enhanced_contactform']['name']     = "Email name";
 $lang['enhanced_contactform']['email']     = "Email address";

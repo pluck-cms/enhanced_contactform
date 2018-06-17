@@ -68,7 +68,7 @@ function enhanced_contactform_page_admin_main() {
 
     if (isset($_GET['delete'])) {
         unlink ('data/settings/modules/enhanced_contactform/'.$_GET['delete']);
-        echo $file . $lang['enhanced_contactform']['deleted'];
+        echo $_GET['delete'] . $lang['enhanced_contactform']['deleted'];
         redirect ('?module=enhanced_contactform','0');
     }
 
@@ -112,26 +112,19 @@ function enhanced_contactform_page_admin_activate(){
  
             </div> <?php 
            
-		   echo "voor submit";
-    
     
     if (isset($_POST['Submit'])) {
-		echo "submit";
 
 		       //Check if everything has been filled in
 			   if((!isset($_POST['name'])) || (!isset($_POST['email']))) { ?>
 				<span style="color: red;"><?php echo $lang['enhanced_contactform']['fillall']; ?></span>
 			<?php
-				echo "niet correct";
 				// exit;
 			}
 			else {
 				//Then fetch our posted variables
 				$name = $_POST['name'];
 				$email = $_POST['email'];
-				echo "correct";
-				echo "<br/>name:" . $name;
-				echo "<br/>email" . $email;
 
 				//Check for HTML, and eventually block it
 				if ((ereg('<', $name)) || (ereg('>', $name)) || (ereg('<', $email)) || (ereg('>', $email))) { ?>
@@ -148,8 +141,6 @@ function enhanced_contactform_page_admin_activate(){
 					.'');
 				fclose ($fp);
 				
-				echo "Bestand gemaakt: " . $file;
-
 			
 				}
 			}
