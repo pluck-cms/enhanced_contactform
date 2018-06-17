@@ -105,7 +105,7 @@ function enhanced_contactform_page_admin_activate(){
             <div class="menudiv" style="margin: 10px;">
  
 	        <form method="post" action="" style="margin-top: 5px; margin-bottom: 15px;">
-    	        <?php echo $lang['enhanced_contactform']['name']; ?> <br /><input name="title" type="text" value="" /><br />
+    	        <?php echo $lang['enhanced_contactform']['name']; ?> <br /><input name="name" type="text" value="" /><br />
         	    <?php echo $lang['enhanced_contactform']['email']; ?> <br /><input name="email" type="text" value="" /><br />
             	<input type="submit" name="Submit" value="<?php echo $lang['enhanced_contactform']['send']; ?>" />
 	        </form>
