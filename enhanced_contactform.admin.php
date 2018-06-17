@@ -112,6 +112,7 @@ function enhanced_contactform_page_admin_activate(){
  
             </div> <?php 
            
+		   echo "voor submit";
     
     
     if (isset($_GET['Submit'])) {
