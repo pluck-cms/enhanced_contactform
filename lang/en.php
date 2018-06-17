@@ -6,6 +6,8 @@ $lang['enhanced_contactform']['email_title']  = 'Message from your website from'
 $lang['enhanced_contactform']['been_send']    = 'Your message has been sent succesfully.';
 $lang['enhanced_contactform']['not_send']     = 'Your message could not be sent, an error occurred.';
 
+$lang['enhanced_contactform']['main'] = "Manage Enhanced Contacforumuler";
+
 $lang['enhanced_contactform']['pagessite'] = "Create new entry";
 $lang['enhanced_contactform']['adminpage'] = "Activate entry";
 $lang['enhanced_contactform']['newentry']  = "Create New entry";

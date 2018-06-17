@@ -6,6 +6,8 @@ $lang['enhanced_contactform']['email_title'] = 'Bericht van uw website van';
 $lang['enhanced_contactform']['been_send'] = 'Uw bericht is met succes verzonden.';
 $lang['enhanced_contactform']['not_send'] = 'Door een onverwachte error kon uw bericht niet verzonden worden.';
 
+$lang['enhanced_contactform']['main'] = "Enhanced Contacforumuler beheren";
+
 $lang['enhanced_contactform']['pagessite'] = "Nieuwe entry aanmaken";
 $lang['enhanced_contactform']['adminpage'] = "Entry toevoegen";
 $lang['enhanced_contactform']['newentry']  = "Nieuwe entry aanmaken";
