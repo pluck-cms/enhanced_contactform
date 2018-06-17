@@ -1,23 +1,15 @@
 <?php
-/*
- * This file is part of pluck, the easy content management system
- * Copyright (c) pluck team
- * http://www.pluck-cms.org
+//This is a module for pluck, an opensource content management system
+//Website: http://www.pluck-cms.org
 
- * Pluck is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
+//LICENSE: MIT
 
- * See docs/COPYING for the complete license.
-*/
-
-//Make sure the file isn't accessed directly.
+//Make sure the file isn't accessed directly
 defined('IN_PLUCK') or exit('Access denied!');
 
 function enhanced_contactform_info() {
 	global $lang;
-	return array(
+	$module_info = array(
 		'name'          => $lang['enhanced_contactform']['module_name'],
 		'intro'         => $lang['enhanced_contactform']['module_intro'],
 		'version'       => '0.1',
@@ -26,5 +18,6 @@ function enhanced_contactform_info() {
 		'icon'          => 'images/contactform.png',
 		'compatibility' => '4.7'
 	);
+	return $module_info;
 }
 ?>
