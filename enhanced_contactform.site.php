@@ -77,7 +77,7 @@ function enhanced_contactform_theme_main() {
 					while (false !== ($file = readdir($dir))) {
 						if(($file !== ".") and ($file !== "..")) {
 							include ('data/settings/modules/enhanced_contactform/'.$file);
-							echo '<option value='.$email.'>'.$emailname.'</option>;'
+							echo '<option value='.$email.'>'.$emailname.'</option>';
 						}
 			    } ?>
 				</select> 
