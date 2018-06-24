@@ -101,9 +101,9 @@ function enhanced_contactform_theme_main() {
 					session_start();
 					include("simple-php-captcha/simple-php-captcha.php");
 					$_SESSION['captcha'] = simple_php_captcha();
-					echo "<img src=".$_SESSION['captcha']['image_src']."/>";
+					echo "<img src='".$_SESSION['captcha']['image_src']."' />";
 ?>	
-				<label for="contactform_captcha"><?php echo $lang['general']['captcha']; ?></label>
+				<label for="contactform_captcha"><?php echo $lang['enhanced_contactform']['captcha']; ?></label>
 				<br />
 				<input name="contactform_captcha" id="contactform_captcha" type="text" />
 				<br />
