@@ -27,5 +27,6 @@ $lang['enhanced_contactform']['adminset']  = "Instellingen voor Contactformulier
 $lang['enhanced_contactform']['pageis']    = "Disclaimer Page";
 $lang['enhanced_contactform']['settings']  = "Instellingen";
 $lang['enhanced_contactform']['save']      = "Instellingen opslaan";
-$lang['enhanced_contactform']['distext']   = "Enter your Disclaimertext here";
+$lang['enhanced_contactform']['distext']   = "Voer hier je Disclaimer in";
+$lang['enhanced_contactform']['captcha']   = "Voer de verificatie code in";
 ?>

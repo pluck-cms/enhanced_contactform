@@ -28,4 +28,5 @@ $lang['enhanced_contactform']['pageis']    = "Disclaimer Page";
 $lang['enhanced_contactform']['settings']  = "Settings";
 $lang['enhanced_contactform']['save']      = "Save Settings";
 $lang['enhanced_contactform']['distext']   = "Enter your Disclaimertext here";
+$lang['enhanced_contactform']['captcha']   = "Enter the verification code";
 ?>

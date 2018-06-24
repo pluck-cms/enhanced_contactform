@@ -94,6 +94,20 @@ function enhanced_contactform_theme_main() {
 				<br />
 				<textarea name="contactform_message" id="contactform_message" rows="7" cols="45"></textarea>
 				<br />
+
+				<?php	
+					//include_once 'simple-php-captcha/simple-php-captcha.php';
+
+					session_start();
+					include("simple-php-captcha/simple-php-captcha.php");
+					$_SESSION['captcha'] = simple_php_captcha();
+					echo "<img src=".$_SESSION['captcha']['image_src']."/>";
+?>	
+				<label for="contactform_captcha"><?php echo $lang['general']['captcha']; ?></label>
+				<br />
+				<input name="contactform_captcha" id="contactform_captcha" type="text" />
+				<br />
+
 				<input type="submit" name="submit" value="<?php echo $lang['general']['send']; ?>" />
 			</div>
 		</form>
