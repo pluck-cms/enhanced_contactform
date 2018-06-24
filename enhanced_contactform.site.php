@@ -15,26 +15,6 @@
 //Make sure the file isn't accessed directly.
 defined('IN_PLUCK') or exit('Access denied!');
 
-
-
-function listdir_by_date($path){
-    $dir = opendir($path);
-    $list = array();
-    while($file = readdir($dir)){
-        if ($file != '.' and $file != '..'){
-            // add the filename, to be sure not to
-            // overwrite a array key
-            $ctime = filectime($path . $file) . ',' . $file;
-            $list[$ctime] = $file;
-        }
-    }
-    closedir($dir);
-    krsort($list);
-    return $list;
-}
-
-
-
 function enhanced_contactform_theme_main() {
 	global $lang;
 
@@ -94,7 +74,7 @@ function enhanced_contactform_theme_main() {
 				<select name="contactform_to" id="contactform_to">
 				<?php 
 				    $dir = opendir('data/settings/modules/enhanced_contactform');
-					while (false !== ($file =listdir_by_date('data/settings/modules/enhanced_contactform'))) {
+					while (false !== ($file = readdir($dir))) {
 						if(($file !== ".") and ($file !== "..")) {
 							include ('data/settings/modules/enhanced_contactform/'.$file);
 							echo '<option value='.$email.'>'.$emailname.'</option>';
@@ -119,7 +99,4 @@ function enhanced_contactform_theme_main() {
 		</form>
 	<?php
 }
-
 ?>
-
-
