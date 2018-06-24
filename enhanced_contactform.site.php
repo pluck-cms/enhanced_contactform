@@ -73,8 +73,8 @@ function enhanced_contactform_theme_main() {
 				<br />
 				<select name="contactform_to" id="contactform_to">
 				<?php 
-				    $dir = opendir('data/settings/modules/enhanced_contactform');
-					while (false !== ($file = readdir($dir))) {
+				    $dir = scandir('data/settings/modules/enhanced_contactform');
+					foreach ($file  in $dir) {
 						if(($file !== ".") and ($file !== "..")) {
 							include ('data/settings/modules/enhanced_contactform/'.$file);
 							echo '<option value='.$email.'>'.$emailname.'</option>';
