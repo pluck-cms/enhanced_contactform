@@ -26,7 +26,7 @@ function enhanced_contactform_theme_main() {
 	if (isset($_POST['contactform_sender']))
 		$sender = $_POST['contactform_sender'];
 		if (isset($_POST['contactform_message']))
-		$captcha = $_POST['contactform_message'];
+		$message = $_POST['contactform_message'];
 		if (isset($_POST['contactform_captcha']))
 		$captcha = $_POST['contactform_captcha'];
 
@@ -36,7 +36,6 @@ function enhanced_contactform_theme_main() {
 		if ($to && $name && $sender && $message && $captcha) {
 			//Sanitize the fields and set extra headers.
 			//N.B. strstr would be neater, but needs PHP >= 5.3 for $before_needle param
-
 			if (strtolower(	$_SESSION['captcha']['code']) == strtolower($captcha)){
 				if(strpos($name, "\r\n"))
 					$name = substr($name, 0, strpos($name, "\r\n"));
