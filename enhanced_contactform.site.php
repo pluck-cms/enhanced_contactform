@@ -25,40 +25,48 @@ function enhanced_contactform_theme_main() {
 		$name = $_POST['contactform_name'];
 	if (isset($_POST['contactform_sender']))
 		$sender = $_POST['contactform_sender'];
-	if (isset($_POST['contactform_message']))
-		$message = $_POST['contactform_message'];
+		if (isset($_POST['contactform_message']))
+		$captcha = $_POST['contactform_message'];
+		if (isset($_POST['contactform_captcha']))
+		$captcha = $_POST['contactform_captcha'];
 
 	//If the the contactform was submitted.
 	if (isset($_POST['submit'])) {
 		//Check if all fields were filled.
-		if ($to && $name && $sender && $message) {
+		if ($to && $name && $sender && $message && $captcha) {
 			//Sanitize the fields and set extra headers.
 			//N.B. strstr would be neater, but needs PHP >= 5.3 for $before_needle param
-			if(strpos($name, "\r\n"))
-				$name = substr($name, 0, strpos($name, "\r\n"));
-			if(strpos($sender, "\r\n"))
-				$sender = substr($sender, 0, strpos($sender, "\r\n"));
-			//Set email headers.
-			$extra_headers = 'From: =?utf-8?B?'.base64_encode($name).'?= <'.$sender.'>'."\r\n";
-			$extra_headers .= "X-Originating-IP: [".$_SERVER['REMOTE_ADDR']."]\r\n";
-			$extra_headers .= "MIME-Version: 1.0\r\n";
-			$extra_headers .= "Content-type: text/plain; charset=utf-8\r\n";
-			$extra_headers .= "Content-Transfer-Encoding: 8bit\r\n";
-			//Check if we can set envelope sender.
-			if(isset($_SERVER['SERVER_ADMIN'])) {
-				$mail_user = $_SERVER['SERVER_ADMIN'];
-				$extra_headers .= "Sender: $mail_user\r\n";
-				$sendmail_params = "-f$mail_user";
-			}
-			else
-				$sendmail_params = NULL;
 
-			//Now we're going to send our email.
-			if (mail($to, '=?utf-8?B?'.base64_encode($lang['enhanced_contactform']['email_title'].' '.$name).'?=', $message, $extra_headers, $sendmail_params))
-				echo '<p class="error">'.$lang['enhanced_contactform']['been_send'].'</p>';
-			//If email couldn't be sent.
-			else
-				echo '<p class="error">'.$lang['enhanced_contactform']['not_send'].'</p>';
+			if (strtolower(	$_SESSION['captcha']['code']) == strtolower($captcha)){
+				if(strpos($name, "\r\n"))
+					$name = substr($name, 0, strpos($name, "\r\n"));
+				if(strpos($sender, "\r\n"))
+					$sender = substr($sender, 0, strpos($sender, "\r\n"));
+				//Set email headers.
+				$extra_headers = 'From: =?utf-8?B?'.base64_encode($name).'?= <'.$sender.'>'."\r\n";
+				$extra_headers .= "X-Originating-IP: [".$_SERVER['REMOTE_ADDR']."]\r\n";
+				$extra_headers .= "MIME-Version: 1.0\r\n";
+				$extra_headers .= "Content-type: text/plain; charset=utf-8\r\n";
+				$extra_headers .= "Content-Transfer-Encoding: 8bit\r\n";
+				//Check if we can set envelope sender.
+				if(isset($_SERVER['SERVER_ADMIN'])) {
+					$mail_user = $_SERVER['SERVER_ADMIN'];
+					$extra_headers .= "Sender: $mail_user\r\n";
+					$sendmail_params = "-f$mail_user";
+				}
+				else
+					$sendmail_params = NULL;
+
+				//Now we're going to send our email.
+				if (mail($to, '=?utf-8?B?'.base64_encode($lang['enhanced_contactform']['email_title'].' '.$name).'?=', $message, $extra_headers, $sendmail_params))
+					echo '<p class="error">'.$lang['enhanced_contactform']['been_send'].'</p>';
+				//If email couldn't be sent.
+				else
+					echo '<p class="error">'.$lang['enhanced_contactform']['not_send'].'</p>';
+			} else {
+				echo '<p class="error">'.$lang['enhanced_contactform']['notvalid'].'</p>';
+			}
+
 		}
 		//If not all fields were filled.
 		else
