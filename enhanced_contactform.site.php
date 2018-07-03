@@ -58,7 +58,7 @@ function enhanced_contactform_theme_main() {
 
 				//Now we're going to send our email.
 				if (mail($to, '=?utf-8?B?'.base64_encode($lang['enhanced_contactform']['email_title'].' '.$name).'?=', $message, $extra_headers, $sendmail_params))
-					echo '<p class="error">'.$lang['enhanced_contactform']['been_send'].'</p>';
+					echo '<p class="success">'.$lang['enhanced_contactform']['been_send'].'</p>';
 				//If email couldn't be sent.
 				else
 					echo '<p class="error">'.$lang['enhanced_contactform']['not_send'].'</p>';
