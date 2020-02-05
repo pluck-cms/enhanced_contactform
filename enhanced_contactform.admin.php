@@ -127,7 +127,7 @@ function enhanced_contactform_page_admin_activate(){
 				$email = $_POST['email'];
 
 				//Check for HTML, and eventually block it
-				if ((ereg('<', $name)) || (ereg('>', $name)) || (ereg('<', $email)) || (ereg('>', $email))) { ?>
+				if ((preg_match('/</', $name)) || (preg_match('/>/', $name)) || (preg_match('/</', $email)) || (preg_match('/>/', $email))) { ?>
 					<span style="color: red;"><?php echo $lang['enhanced_contactform']['nohtml']; ?></span>
 				<?php } else {
 		
